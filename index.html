@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -53,7 +53,7 @@
                     <span class="text-3xl font-bold text-black">23</span>
                 </div>
                 <div>
-                    <button class="bg-gray-100 p-2 rounded-full"><img src="./Images/theme-btn.png" alt=""></button>
+                    <button id="color-btn" class="bg-gray-100 p-2 rounded-full"><img src="./Images/theme-btn.png" alt=""></button>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
     <main class="mt-7">
       <div class="grid grid-cols-4 gap-3">
         <div class="bg-white col-span-3 rounded-md">
-           <div class="grid grid-cols-4 m-4 gap-4 ">
+           <div class="grid grid-cols-4 p-4 gap-4 border-b-2 border-dashed border-gray-100">
              <!-- Task card -->
              <div class=" bg-gray-100 flex justify-center items-center gap-3 p-3 rounded-lg">
                  <img src="./Images/checkbox.png" alt="">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <!-- Discover card -->
-            <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-3 rounded-lg flex items-center justify-center col-span-2">
+            <div id="discover" class="hover:cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white p-3 rounded-lg flex items-center justify-center col-span-2">
                 <img src="./Images/board.png" alt="">
                 <h2 class="text-lg font-bold">Discover Something New Today!</h2>
             </div>
@@ -84,7 +84,7 @@
 
            <!-- Middle Cards -->
             <!-- card-1 -->
-           <div class=" grid grid-cols-3 gap-4 m-4">
+           <div class=" grid grid-cols-3 gap-4 p-4 ">
             <div class="bg-gray-100 p-4 rounded-lg ">
                 <button class="bg-white text-black text-sm ml-4 p-2 rounded-lg">ShopEase</button>
                 <h2 class= "text-lg font-bold m-2">Fix Mobile Button Issue</h2>
@@ -170,7 +170,7 @@
     
     </main>
 
-
+<script src="./script/index.js"></script>
 
 </body>
 
