@@ -3,10 +3,6 @@ let totalTask = parseInt(completedTask.innerText)
 const assignedTask = document.getElementById("assigned-task");
 let remainingTask = parseInt(assignedTask.innerText);
 
-function changeBgColor() {
-    const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-    document.body.style.backgroundColor = randomColor;
-}
 
 document.getElementById("discover").
     addEventListener("click", function () {
@@ -15,7 +11,8 @@ document.getElementById("discover").
 
 document.getElementById("color-btn").
     addEventListener("click", function () {
-        changeBgColor();
+        const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+        document.body.style.backgroundColor = randomColor;
     })
 
 
@@ -59,4 +56,3 @@ document.getElementById("history-btn").
             historyDiv[0].parentNode.removeChild(historyDiv[0]);
         }
     })
-    
