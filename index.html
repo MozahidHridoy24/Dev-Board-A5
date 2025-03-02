@@ -21,17 +21,6 @@
             font-family: "Poppins", sans-serif;
         }
     </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    },
-                },
-            }
-        }
-    </script>
 </head>
 
 <body class="bg-gray-100 py-6 px-12 font-poppins text-black">
@@ -50,7 +39,7 @@
             <div class="flex items-center space-x-4">
                 <div class="relative flex items-center gap-2 bg-gray-100 p-2 rounded-full">
                     <img src="./Images/checkbox.png" alt="">
-                    <span class="text-3xl font-bold text-black">23</span>
+                    <span id="completed-task" class="text-3xl font-bold text-black">23</span>
                 </div>
                 <div>
                     <button id="color-btn" class="bg-gray-100 p-2 rounded-full"><img src="./Images/theme-btn.png" alt=""></button>
@@ -67,7 +56,8 @@
                  <img src="./Images/checkbox.png" alt="">
                  <div class="">
                     <span class="text-lg font-semibold">Task Assigned</span>
-                    <span class="text-2xl font-bold">05</span>
+                    <br>
+                    <span id="assigned-task" class="text-2xl font-bold">6</span>
                 </div>
             </div>
             <!-- Discover card -->
@@ -77,8 +67,10 @@
             </div>
             <!-- Date card -->
             <div class="flex justify-center items-center bg-gray-100 rounded-lg p-3 gap-3">
-                <img src="./Images/calender.png" alt="">
-                <h3>Wed, <br>  <span class="font-bold">July 27 2025</span></h3>
+                <div class="flex justify-center items-center bg-white rounded-full w-12 h-12 ">
+                    <img src="./Images/calender.png" alt="">
+                </div>
+                <h3 id="todays-date" class="font-bold"></h3>
             </div>
            </div>
 
@@ -92,7 +84,7 @@
 
                 <div class="mt-3 flex justify-between items-center">
                     <h3 class="text-sm text-gray-600">Deadline: <br> <span class="font-bold">21 March 2025</span></h3>
-                    <button class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">Completed</button>
+                    <button class="complete-card-button  bg-blue-600 text-white px-3 py-1 rounded-md text-sm disabled:bg-gray-400 disabled:cursor-not-allowed ">Completed</button>
                 </div>
                 </div>
                 <!-- card-2 -->
@@ -102,7 +94,7 @@
                 <textarea class="bg-white w-full h-12 overflow-ellipsis text-xs rounded-md" rows="2">Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.</textarea>
                 <div class="mt-3 flex justify-between items-center">
                     <h3 class="text-sm text-gray-600">Deadline: <br> <span class="font-bold">21 March 2025</span></h3>
-                    <button class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">Completed</button>
+                    <button class="complete-card-button  bg-blue-600 text-white px-3 py-1 rounded-md text-sm disabled:bg-gray-400 disabled:cursor-not-allowed">Completed</button>
                 </div>
                 </div>
                 <!-- card-3 -->
@@ -113,7 +105,7 @@
 
                 <div class="mt-3 flex justify-between items-center">
                     <h3 class="text-sm text-gray-600">Deadline: <br> <span class="font-bold">21 March 2025</span></h3>
-                    <button class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">Completed</button>
+                    <button class="complete-card-button  bg-blue-600 text-white px-3 py-1 rounded-md text-sm disabled:bg-gray-400 disabled:cursor-not-allowed">Completed</button>
                 </div>
                 </div>
                 <!-- card-4 -->
@@ -124,7 +116,7 @@
 
                 <div class="mt-3 flex justify-between items-center">
                     <h3 class="text-sm text-gray-600">Deadline: <br> <span class="font-bold">21 March 2025</span></h3>
-                    <button class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">Completed</button>
+                    <button class="complete-card-button  bg-blue-600 text-white px-3 py-1 rounded-md text-sm disabled:bg-gray-400 disabled:cursor-not-allowed">Completed</button>
                 </div>
                 </div>
                 <!-- card-5 -->
@@ -135,7 +127,7 @@
 
                 <div class="mt-3 flex justify-between items-center">
                     <h3 class="text-sm text-gray-600">Deadline: <br> <span class="font-bold">21 March 2025</span></h3>
-                    <button class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">Completed</button>
+                    <button class="complete-card-button  bg-blue-600 text-white px-3 py-1 rounded-md text-sm disabled:bg-gray-400 disabled:cursor-not-allowed">Completed</button>
                 </div>
                 </div>
                 <!-- card-6 -->
@@ -146,7 +138,7 @@
 
                 <div class="mt-3 flex justify-between items-center">
                     <h3 class="text-sm text-gray-600">Deadline: <br> <span class="font-bold">21 March 2025</span></h3>
-                    <button class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm">Completed</button>
+                    <button class="complete-card-button  bg-blue-600 text-white px-3 py-1 rounded-md text-sm disabled:bg-gray-400 disabled:cursor-not-allowed">Completed</button>
                 </div>
                 </div>
            
@@ -155,13 +147,17 @@
 
         </div>
         <!-- History card -->
-        <div class=" bg-white p-8 flex justify-center rounded-md">
-            <div class="border-b-2 border-dashed border-gray-100 h-28">
-               <div class="flex gap-2">
+        <div id="history" class=" bg-white p-8 rounded-md border-2 border-dashed border-red-400">
+            <div class="border-b-2 border-dashed border-gray-100 mb-2 text-center">
+               <div class="flex justify-center gap-2">
                 <img src="./Images/activity.png" alt="">
                 <h3 class="text-xl">Activity Log</h3>
             </div>
-                <button class="p-2 bg-[#3752FD] text-white rounded-lg mt-5 mb-8">Clear History</button>
+                <div >
+                    <button  class="p-2 bg-[#3752FD] text-white rounded-lg mt-5 mb-8">Clear History</button>
+                    
+                </div>
+                
             </div>
 
         </div>
