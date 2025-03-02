@@ -37,10 +37,12 @@ for (const button of buttons) {
         p.innerText = `You have Complete The Task ${cardTitles} at ${timeString}`;
         p.style.marginBottom = "10px";
         p.style.backgroundColor = "#f3f4f6";
+        p.style.padding = "8px";
+        p.style.borderRadius = "5px";
         historyDiv.appendChild(p);
 
         this.disabled = true;
-        if(remainingTask<=0){
+        if (remainingTask <= 0) {
             alert("Congrats!!! You have completed all the current task")
         }
     })
@@ -51,9 +53,10 @@ const formattedDate = today.toDateString();
 document.getElementById("todays-date").innerText = formattedDate;
 
 document.getElementById("history-btn").
-addEventListener("click", function(){
-    const historyDiv = document.getElementsByTagName("p");
-    while (historyDiv.length > 0) {
-        historyDiv[0].parentNode.removeChild(historyDiv[0]);
-    }
-})
+    addEventListener("click", function () {
+        const historyDiv = document.getElementsByTagName("p");
+        while (historyDiv.length > 0) {
+            historyDiv[0].parentNode.removeChild(historyDiv[0]);
+        }
+    })
+    
