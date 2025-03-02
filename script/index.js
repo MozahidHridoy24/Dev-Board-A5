@@ -25,22 +25,35 @@ for (const button of buttons) {
         alert('Board Updated Successfully');
         totalTask++;
         remainingTask--;
-        console.log(totalTask, remainingTask)
 
         completedTask.innerText = totalTask;
         assignedTask.innerText = remainingTask;
 
+        const cardTitles = button.parentNode.parentNode.querySelector(".card-title").innerText;
+        const time = new Date();
+        const timeString = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true });
         const historyDiv = document.getElementById("history");
         const p = document.createElement("p");
-        p.innerText = "You have Complete The Task Add Dark Mode at 12:48:15 PM";
-        p.style.marginBottom ="10px" ;
-       historyDiv.appendChild(p);
+        p.innerText = `You have Complete The Task ${cardTitles} at ${timeString}`;
+        p.style.marginBottom = "10px";
+        p.style.backgroundColor = "#f3f4f6";
+        historyDiv.appendChild(p);
 
         this.disabled = true;
+        if(remainingTask<=0){
+            alert("Congrats!!! You have completed all the current task")
+        }
     })
 }
 
 const today = new Date();
 const formattedDate = today.toDateString();
-document.getElementById("todays-date").innerText =formattedDate;
+document.getElementById("todays-date").innerText = formattedDate;
 
+document.getElementById("history-btn").
+addEventListener("click", function(){
+    const historyDiv = document.getElementsByTagName("p");
+    while (historyDiv.length > 0) {
+        historyDiv[0].parentNode.removeChild(historyDiv[0]);
+    }
+})
